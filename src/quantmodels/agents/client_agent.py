@@ -3,6 +3,15 @@
 import warnings
 warnings.filterwarnings("ignore")
 
+import os
+import sys
+from pathlib import Path
+
+# Add the 'src' directory to the Python path for direct script execution
+src_path = str(Path(__file__).resolve().parents[2])
+if src_path not in sys.path:
+    sys.path.insert(0, src_path)
+
 from google import genai
 from google.genai import types
 from quantmodels.config import GOOGLE_API_KEY, GEMINI_2_5_FLASH
