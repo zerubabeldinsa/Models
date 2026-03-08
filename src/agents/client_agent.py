@@ -3,8 +3,11 @@
 from google import genai
 from google.genai import types
 
+import warnings
+warnings.filterwarnings("ignore")
+
 # Initialize the client and set your API key
-API_KEY = "AIzaSyARCUJVHwY-gVCfnIqcDqdCDPAT9t1s8Y4"
+API_KEY = "AIzaSyC4no_dZZZQep-tRsU4OaNQGpXDFY73Lus"
 client = genai.Client(api_key=API_KEY)
 MODEL_ID = "gemini-2.5-flash"
 
