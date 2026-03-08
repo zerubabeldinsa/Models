@@ -5,10 +5,10 @@ warnings.filterwarnings("ignore")
 
 from google import genai
 from google.genai import types
+from quantmodels.config import GOOGLE_API_KEY
 
 # Initialize the client and set your API key
-API_KEY = "AIzaSyC4no_dZZZQep-tRsU4OaNQGpXDFY73Lus"
-client = genai.Client(api_key=API_KEY)
+client = genai.Client(api_key=GOOGLE_API_KEY)
 MODEL_ID = "gemini-2.5-flash"
 
 def add(a: float, b: float):
