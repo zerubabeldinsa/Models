@@ -15,7 +15,7 @@ broker_client = BrokerClient(
 )
 
 # The client automatically picks up the API key from the environment variable
-genai.configure(api_key="AIzaSyARCUJVHwY-gVCfnIqcDqdCDPAT9t1s8Y4")
+genai.configure(api_key="AIzaSyC4no_dZZZQep-tRsU4OaNQGpXDFY73Lus")
 
 # Initialize the Gemini model
 model = genai.GenerativeModel('gemini-3-flash-preview')
