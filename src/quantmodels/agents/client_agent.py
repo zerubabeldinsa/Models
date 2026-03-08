@@ -5,11 +5,11 @@ warnings.filterwarnings("ignore")
 
 from google import genai
 from google.genai import types
-from quantmodels.config import GOOGLE_API_KEY
+from quantmodels.config import GOOGLE_API_KEY, GEMINI_2_5_FLASH
 
 # Initialize the client and set your API key
 client = genai.Client(api_key=GOOGLE_API_KEY)
-MODEL_ID = "gemini-2.5-flash"
+MODEL_ID = GEMINI_2_5_FLASH
 
 def add(a: float, b: float):
     """Returns the sum of two numbers.

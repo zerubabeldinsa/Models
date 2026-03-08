@@ -1,6 +1,6 @@
 import json
 from alpaca.broker import BrokerClient
-from quantmodels.config import BROKER_API_KEY, BROKER_SECRET_KEY, GOOGLE_API_KEY, ACCOUNT_ID
+from quantmodels.config import BROKER_API_KEY, BROKER_SECRET_KEY, GOOGLE_API_KEY, ACCOUNT_ID, GEMINI_3_FLASH_PREVIEW
 
 import google.generativeai as genai
 import os
@@ -15,7 +15,7 @@ broker_client = BrokerClient(
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize the Gemini model
-model = genai.GenerativeModel('gemini-3-flash-preview')
+model = genai.GenerativeModel(GEMINI_3_FLASH_PREVIEW)
 
 account_id = ACCOUNT_ID
 data = broker_client.get_trade_account_by_id(account_id)
