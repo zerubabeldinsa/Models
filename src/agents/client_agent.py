@@ -1,10 +1,10 @@
 # FUNCTION CALLING AGENT 
 
-from google import genai
-from google.genai import types
-
 import warnings
 warnings.filterwarnings("ignore")
+
+from google import genai
+from google.genai import types
 
 # Initialize the client and set your API key
 API_KEY = "AIzaSyC4no_dZZZQep-tRsU4OaNQGpXDFY73Lus"
