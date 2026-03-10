@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+import random
 from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.data.requests import StockBarsRequest
 from alpaca.data.timeframe import TimeFrame
@@ -17,7 +18,7 @@ if src_path not in sys.path:
     sys.path.insert(0, src_path)
 
 from categories import cyclicals, non_cyclicals, growth, defensive
-from quantmodels.config import API_KEY, API_SECRET, GOOGLE_API_KEY, ACCOUNT_ID, GEMINI_3_FLASH_PREVIEW 
+from quantmodels.config import API_KEY, API_SECRET
 
 client = StockHistoricalDataClient(API_KEY, API_SECRET)
 
@@ -74,9 +75,12 @@ def build_daily_portfolios():
 
     for category, stock_list in categories.items():
 
-        prices = get_price_data(stock_list)
+        sample_size = min(5, len(stock_list))
+        sampled_symbols = random.sample(stock_list, sample_size) if sample_size > 0 else []
 
-        selected, corr = hrp_selection(prices)
+        prices = get_price_data(sampled_symbols)
+
+        selected, corr = hrp_selection(prices, n_assets=min(5, prices.shape[1]))
 
         portfolios[category] = selected
 
