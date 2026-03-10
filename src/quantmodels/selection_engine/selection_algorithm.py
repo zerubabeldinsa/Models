@@ -86,6 +86,22 @@ def build_daily_portfolios():
 
     return portfolios
 
+# CORRELATION DATA FOR RANDOMLY SAMPLED STOCKS
+def get_random_sample_correlation(category, sample_size=5):
+
+    stock_list = categories.get(category, [])
+    sample_size = min(sample_size, len(stock_list))
+    sampled_symbols = random.sample(stock_list, sample_size) if sample_size > 0 else []
+
+    if not sampled_symbols:
+        return sampled_symbols, pd.DataFrame()
+
+    prices = get_price_data(sampled_symbols)
+    returns = prices.pct_change().dropna()
+    corr = returns.corr()
+
+    return sampled_symbols, corr
+
 # DAILY OUTPUT
 def run_daily():
 
