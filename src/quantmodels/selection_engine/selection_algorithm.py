@@ -12,7 +12,7 @@ from scipy.cluster.hierarchy import linkage, dendrogram
 from scipy.spatial.distance import squareform
 
 # Add the 'src' directory to the Python path for direct script execution
-src_path = str(Path(__file__).resolve().parents[3])
+src_path = str(Path(__file__).resolve().parents[2])
 if src_path not in sys.path:
     sys.path.insert(0, src_path)
 
@@ -94,4 +94,7 @@ def run_daily():
         print(category.upper())
         print(stocks)
         print()
+
+if __name__ == "__main__":
+    run_daily()
 
