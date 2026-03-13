@@ -6,6 +6,8 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import random
+
+# ALPACA BROKERAGE API
 from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.data.requests import StockBarsRequest
 from alpaca.data.timeframe import TimeFrame
